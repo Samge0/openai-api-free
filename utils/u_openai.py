@@ -62,14 +62,15 @@ def get_account_info(account_switching_type: str, account_infos: list) -> str:
     :param account_infos: openai的账号信息列表
     :return:
     """
-    if len(account_infos or []) == 0:
+    if not account_switching_type or len(account_infos or []) == 0:
         return ""
-    if account_switching_type == AccountSwitchingType.ASC.value:
+    if account_switching_type.lower() == AccountSwitchingType.ASC.value:
         record_file = 'curr_account_index.txt'
         record_value = u_file.read(record_file)
-        curr_account_index = int(record_value) + 1 if record_value else 0
+        curr_account_index = 0 if not record_value else int(record_value or 0) + 1
         curr_account_index = int(curr_account_index % len(account_infos))
-        u_file.save(curr_account_index, record_file)
+        u_file.save(str(curr_account_index), record_file)
+        u_log.i(f"ASC：{record_value} -> {curr_account_index}")
         return account_infos[curr_account_index]
     else:
         return random.choice(account_infos)
@@ -82,10 +83,13 @@ class GptHelper(object):
 
     # 自定义配置
     config = eval(u_file.read('config.json')) or {}
+    u_log.i(f"自定义配置：\n{config}")
+
     # 账号信息列表
     account_infos = get_account_infos(config)
     # 账号信息列表
     account_switching_type = config.get('account_switching_type') or 'asc'
+
     # 代理机器人
     account_info = get_account_info(account_switching_type=account_switching_type, account_infos=account_infos)
     chatbot = get_chatbot(account_info)
@@ -110,3 +114,7 @@ class GptHelper(object):
             account_info = get_account_info(account_switching_type=self.account_switching_type, account_infos=self.account_infos)
             self.chatbot = get_chatbot(account_info)
             return self.get_answer(prompt)
+
+
+if __name__ == '__main__':
+    print(AccountSwitchingType.ASC.value)

@@ -11,5 +11,5 @@ class AccountSwitchingType(enum.Enum):
         正序=asc
         随机=random
     """
-    ASC = "asc",  # 正序
-    RANDOM = "random",  # 随机
+    ASC = "asc"  # 正序
+    RANDOM = "random"  # 随机
