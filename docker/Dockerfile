@@ -8,8 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 安装所需的 Python 包（这里的all_proxy需要替换为你的代理或者删掉）
-RUN export https_proxy=http://192.168.3.169:7890 http_proxy=http://192.168.3.169:7890 && \
-    mkdir -p /app/logs && \
+RUN mkdir -p /app/logs && \
     pip install --no-cache-dir -r requirements.txt
 
 # 声明容器监听的端口

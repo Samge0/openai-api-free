@@ -1,5 +1,5 @@
-## 字体反爬破解的api-docker镜像
-一个字体反爬破解的api-docker镜像
+## 使用openai账号轮询chatgpt的web端接口的api-docker镜像
+一个使用openai账号轮询chatgpt的web端接口的api-docker镜像
 
 ### 构建api正式包
 ```shell
