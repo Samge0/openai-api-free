@@ -8,9 +8,18 @@
 ### 使用说明
 - 复制`config-dev.json`文件为`config.json`并填写自定义的`auth_token`、`account_infos`；
   - auth_token：访问接口的自定义token
-  - account_infos：openai的账号信息列表，格式为："登录邮箱|登录密码|代理ip"
+  - account_switching_type：账号切换类型：正序=asc，随机=random
+  - account_infos_api：账号信息列表获取的api接口地址，跟 **account_infos** 配置必选其一；
+    - GET方式
+    - 该返回格式要求：
+      - json格式的字符数组
+      - ["登录邮箱|登录密码|代理ip"]
+    - 例如：https://api.xxxxxx.com/account_infos?auth_token=xxx
+  - account_infos：openai的账号信息列表，跟 **account_infos_api** 配置必选其一；
+    - 格式为："登录邮箱|登录密码|代理ip"
     - 例如："samgeapp@gmail.com|xxxpw|http://127.0.0.1:7890"
     - 例如："samgeapp@gmail.com|xxxpw"
+  - 参数读取优先级：account_infos_api > account_infos
 - 配置`http-client.env.json`后在`test_main.http`中进行接口调试，其中`auth_token`的值跟config.json中的一致；
 - 接口使用请查看`test_main.http`测试文件
 

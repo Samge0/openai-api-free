@@ -1,5 +1,7 @@
 {
   "auth_token": "这里添加自定义的api请求token",
+  "account_switching_type": "asc",
+  "account_infos_api": "",
   "auth_token": [
     "登录邮箱|登录密码|代理ip"
   ]
