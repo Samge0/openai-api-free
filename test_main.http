@@ -1,0 +1,12 @@
+# Test your FastAPI endpoints
+
+### Send POST request with json body
+
+POST http://{{host}}:{{port}}/ai/chat_free
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "prompt": "请用第一人称夸夸Samge，配合往事的回忆来夸。"
+}
+
