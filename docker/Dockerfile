@@ -9,6 +9,7 @@ COPY . .
 
 # 安装所需的 Python 包（这里的all_proxy需要替换为你的代理或者删掉）
 RUN mkdir -p /app/logs && \
+    pip install --upgrade pip && \
     pip install -i https://pypi.python.org/simple/ --no-cache-dir -r requirements.txt
 
 # 声明容器监听的端口
