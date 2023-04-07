@@ -39,8 +39,10 @@ pip install -r requirements.txt
 uvicorn run main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 有疑问请添加微信（备注: openai-api-free），不定期通过解答
-**微信号 SamgeApp **
+### 技术交流
+- [Join Discord >>](https://discord.com/invite/eRuSqve8CE)
+- WeChat：`SamgeApp`
+
 
 
 ### 免责声明
