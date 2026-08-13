@@ -5,6 +5,9 @@
 - Plus 帐户每小时有大约 150 个请求的速率限制
 
 
+> 🌐 **[在线宣传页](https://samge0.github.io/openai-api-free/)** — 可视化了解功能特性与工作流程
+
+
 ### 使用说明
 - 复制`config-dev.json`文件为`config.json`并填写自定义的`auth_token`、`account_infos`；
   - auth_token：访问接口的自定义token
